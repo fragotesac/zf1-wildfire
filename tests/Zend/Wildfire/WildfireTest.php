@@ -44,12 +44,6 @@ require_once 'Zend/Controller/Request/Simple.php';
 /** Zend_Controller_Front **/
 require_once 'Zend/Controller/Front.php';
 
-/** Zend_Json */
-require_once 'Zend/Json.php';
-
-/** Zend_Json_Encoder */
-require_once 'Zend/Json/Encoder.php';
-
 /**
  * @category   Zend
  * @package    Zend_Wildfire
