@@ -724,9 +724,9 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
                 if (!isset($properties[$name])) {
                     $name = 'undeclared:'.$name;
 
-                    if (!(isset($this->objectFilters[$class])
-                          && is_array($this->objectFilters[$class])
-                          && in_array($just_name,$this->objectFilters[$class]))) {
+                    if (!(isset($this->_objectFilters[$class])
+                          && is_array($this->_objectFilters[$class])
+                          && in_array($just_name,$this->_objectFilters[$class]))) {
 
                       $return[$name] = $this->_encodeObject($value, $objectDepth + 1, 1);
                     } else {
