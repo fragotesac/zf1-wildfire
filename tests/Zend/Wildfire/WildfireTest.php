@@ -20,29 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Wildfire_Channel_HttpHeaders */
-require_once 'Zend/Wildfire/Channel/HttpHeaders.php';
-
-/** Zend_Wildfire_Plugin_FirePhp */
-require_once 'Zend/Wildfire/Plugin/FirePhp.php';
-
-/** Zend_Wildfire_Plugin_FirePhp_Message */
-require_once 'Zend/Wildfire/Plugin/FirePhp/Message.php';
-
-/** Zend_Wildfire_Plugin_FirePhp_TableMessage */
-require_once 'Zend/Wildfire/Plugin/FirePhp/TableMessage.php';
-
-/** Zend_Controller_Request_HttpTestCase */
-require_once 'Zend/Controller/Request/HttpTestCase.php';
-
-/** Zend_Controller_Response_Http */
-require_once 'Zend/Controller/Response/HttpTestCase.php';
-
-/** Zend_Controller_Request_Simple */
-require_once 'Zend/Controller/Request/Simple.php';
-
-/** Zend_Controller_Front **/
-require_once 'Zend/Controller/Front.php';
 
 /**
  * @category   Zend
@@ -166,13 +143,9 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
     public function testFirePhpPluginInstanciation()
     {
         $this->_setupWithoutFrontController();
-        try {
-            Zend_Wildfire_Plugin_FirePhp::getInstance();
-            Zend_Wildfire_Plugin_FirePhp::init(null);
-            $this->fail('Should not be able to re-initialize');
-        } catch (Exception $e) {
-            // success
-        }
+        $this->expectException(Exception::class);
+        Zend_Wildfire_Plugin_FirePhp::getInstance();
+        Zend_Wildfire_Plugin_FirePhp::init(null);
     }
 
     public function testFirePhpPluginEnablement()
@@ -718,13 +691,9 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
     public function testChannelInstanciation()
     {
         $this->_setupWithoutFrontController();
-        try {
-            Zend_Wildfire_Channel_HttpHeaders::getInstance();
-            Zend_Wildfire_Channel_HttpHeaders::init(null);
-            $this->fail('Should not be able to re-initialize');
-        } catch (Exception $e) {
-            // success
-        }
+        $this->expectException(Exception::class);
+        Zend_Wildfire_Channel_HttpHeaders::getInstance();
+        Zend_Wildfire_Channel_HttpHeaders::init(null);
     }
 
     public function testChannelFlush()
@@ -1021,6 +990,7 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
 
     /**
      * @group ZF-10537
+     * @doesNotPerformAssertions
      */
     public function testFileLineOffsets()
     {
