@@ -15,7 +15,7 @@
         "diablomedia/zendframework1-exception": "^1.0.0",
         "diablomedia/zendframework1-json": "^1.0.0",
         "diablomedia/zendframework1-loader": "^1.0.0",
-        "diablomedia/zendframework1-controller": "dev-master"
+        "diablomedia/zendframework1-controller": "^1.0.0"
     },
     "autoload": {
         "psr-0": {
@@ -40,6 +40,6 @@
     "scripts": {
         "test": "phpunit ./tests",
         "test-with-coverage": "phpunit --coverage-clover=clover.xml ./tests",
-        "phpstan": "phpstan analyze -l1 -c phpstan.neon --no-progress ./src --ansi"
+        "phpstan": "phpstan analyze -l6 -c phpstan.neon --no-progress ./src --ansi"
     }
 }

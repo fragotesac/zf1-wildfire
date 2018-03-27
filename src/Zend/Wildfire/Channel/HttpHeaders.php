@@ -120,7 +120,7 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
      * Get the instance of a give protocol for this channel
      *
      * @param string $uri The URI for the protocol
-     * @return object Returns the protocol instance for the diven URI
+     * @return Zend_Wildfire_Protocol_JsonStream Returns the protocol instance for the given URI
      */
     public function getProtocol($uri)
     {
@@ -137,7 +137,7 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
      * Initialize a new protocol
      *
      * @param string $uri The URI for the protocol to be initialized
-     * @return object Returns the new initialized protocol instance
+     * @return Zend_Wildfire_Protocol_JsonStream Returns the new initialized protocol instance
      * @throws Zend_Wildfire_Exception
      */
     protected function _initProtocol($uri)
