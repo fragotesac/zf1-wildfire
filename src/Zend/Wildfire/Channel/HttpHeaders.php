@@ -96,9 +96,9 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
      * @param bool $skipCreate True if an instance should not be created
      * @return Zend_Wildfire_Channel_HttpHeaders
      */
-    public static function getInstance($skipCreate=false)
+    public static function getInstance($skipCreate = false)
     {
-        if (self::$_instance===null && $skipCreate!==true) {
+        if (self::$_instance === null && $skipCreate !== true) {
             return self::init();
         }
         return self::$_instance;
@@ -143,10 +143,10 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
     protected function _initProtocol($uri)
     {
         switch ($uri) {
-            case Zend_Wildfire_Protocol_JsonStream::PROTOCOL_URI;
+            case Zend_Wildfire_Protocol_JsonStream::PROTOCOL_URI:
                 return new Zend_Wildfire_Protocol_JsonStream();
         }
-        throw new Zend_Wildfire_Exception('Tyring to initialize unknown protocol for URI "'.$uri.'".');
+        throw new Zend_Wildfire_Exception('Tyring to initialize unknown protocol for URI "' . $uri . '".');
     }
 
 
@@ -161,15 +161,16 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
             return false;
         }
 
-        foreach ( $this->_protocols as $protocol ) {
-
+        foreach ($this->_protocols as $protocol) {
             $payload = $protocol->getPayload($this);
 
             if ($payload) {
-                foreach( $payload as $message ) {
-
-                    $this->getResponse()->setHeader(self::$_headerPrefix.$message[0],
-                                                    $message[1], true);
+                foreach ($payload as $message) {
+                    $this->getResponse()->setHeader(
+                        self::$_headerPrefix . $message[0],
+                                                    $message[1],
+                        true
+                    );
                 }
             }
         }
@@ -184,7 +185,7 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
      */
     public static function setControllerPluginStackIndex($index)
     {
-        $previous = self::$_controllerPluginStackIndex;
+        $previous                          = self::$_controllerPluginStackIndex;
         self::$_controllerPluginStackIndex = $index;
         return $previous;
     }
@@ -238,7 +239,7 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
      * @param boolean $forceCheckRequest OPTIONAL Set to TRUE if the request must be checked
      * @return boolean Returns TRUE if channel is ready.
      */
-    public function isReady($forceCheckRequest=false)
+    public function isReady($forceCheckRequest = false)
     {
         if (!$forceCheckRequest
             && !$this->_request
@@ -257,7 +258,8 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
                         $this->getRequest()->getHeader('User-Agent'),
                         $m
                     ) ||
-                    (($header = $this->getRequest()->getHeader('X-FirePHP-Version'))
+                    (
+                        ($header = $this->getRequest()->getHeader('X-FirePHP-Version'))
                      && preg_match_all('/^([\.\d]*)$/si', $header, $m)
                    ))
                );

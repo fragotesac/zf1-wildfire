@@ -74,7 +74,7 @@ class Zend_Wildfire_Plugin_FirePhp_Message
      * @var array
      */
     protected $_options = array(
-        'traceOffset' => null, /* The offset in the trace which identifies the source of the message */
+        'traceOffset'        => null, /* The offset in the trace which identifies the source of the message */
         'includeLineNumbers' => null /* Whether to include line and file info for this message */
     );
 
@@ -85,11 +85,11 @@ class Zend_Wildfire_Plugin_FirePhp_Message
      * @param mixed $message The message
      * @return void
      */
-    function __construct($style, $message)
+    public function __construct($style, $message)
     {
-        $this->_style = $style;
+        $this->_style   = $style;
         $this->_message = $message;
-        $this->_ruid = md5(microtime().mt_rand());
+        $this->_ruid    = md5(microtime() . mt_rand());
     }
 
     /**
@@ -124,7 +124,7 @@ class Zend_Wildfire_Plugin_FirePhp_Message
      */
     public function setBuffered($buffered)
     {
-        $previous = $this->_buffered;
+        $previous        = $this->_buffered;
         $this->_buffered = $buffered;
         return $previous;
     }
@@ -147,7 +147,7 @@ class Zend_Wildfire_Plugin_FirePhp_Message
      */
     public function setDestroy($destroy)
     {
-        $previous = $this->_destroy;
+        $previous       = $this->_destroy;
         $this->_destroy = $destroy;
         return $previous;
     }
@@ -211,12 +211,12 @@ class Zend_Wildfire_Plugin_FirePhp_Message
      */
     public function setOption($key, $value)
     {
-      if(!array_key_exists($key,$this->_options)) {
-        throw new Zend_Wildfire_Exception('Option with name "'.$key.'" does not exist!');
-      }
-      $previous = $this->_options[$key];
-      $this->_options[$key] = $value;
-      return $previous;
+        if (!array_key_exists($key, $this->_options)) {
+            throw new Zend_Wildfire_Exception('Option with name "' . $key . '" does not exist!');
+        }
+        $previous             = $this->_options[$key];
+        $this->_options[$key] = $value;
+        return $previous;
     }
 
     /**
@@ -227,10 +227,10 @@ class Zend_Wildfire_Plugin_FirePhp_Message
      */
     public function getOption($key)
     {
-      if(!array_key_exists($key,$this->_options)) {
-        throw new Zend_Wildfire_Exception('Option with name "'.$key.'" does not exist!');
-      }
-      return $this->_options[$key];
+        if (!array_key_exists($key, $this->_options)) {
+            throw new Zend_Wildfire_Exception('Option with name "' . $key . '" does not exist!');
+        }
+        return $this->_options[$key];
     }
 
     /**
@@ -240,7 +240,6 @@ class Zend_Wildfire_Plugin_FirePhp_Message
      */
     public function getOptions()
     {
-      return $this->_options;
+        return $this->_options;
     }
 }
-

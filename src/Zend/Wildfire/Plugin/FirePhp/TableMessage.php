@@ -49,7 +49,7 @@ class Zend_Wildfire_Plugin_FirePhp_TableMessage extends Zend_Wildfire_Plugin_Fir
      *
      * @param string $label The label of the table
      */
-    function __construct($label)
+    public function __construct($label)
     {
         parent::__construct(Zend_Wildfire_Plugin_FirePhp::TABLE, null);
         $this->setLabel($label);
@@ -85,8 +85,8 @@ class Zend_Wildfire_Plugin_FirePhp_TableMessage extends Zend_Wildfire_Plugin_Fir
     public function getMessage()
     {
         $table = $this->_rows;
-        if($this->_header) {
-            array_unshift($table,$this->_header);
+        if ($this->_header) {
+            array_unshift($table, $this->_header);
         }
         return $table;
     }
@@ -102,8 +102,8 @@ class Zend_Wildfire_Plugin_FirePhp_TableMessage extends Zend_Wildfire_Plugin_Fir
     {
         $count = $this->getRowCount();
 
-        if($index < 0 || $index > $count-1) {
-            throw new Zend_Wildfire_Exception('Row index('.$index.') out of bounds('.$count.')!');
+        if ($index < 0 || $index > $count - 1) {
+            throw new Zend_Wildfire_Exception('Row index(' . $index . ') out of bounds(' . $count . ')!');
         }
 
         return $this->_rows[$index];
@@ -120,8 +120,8 @@ class Zend_Wildfire_Plugin_FirePhp_TableMessage extends Zend_Wildfire_Plugin_Fir
     {
         $count = $this->getRowCount();
 
-        if($index < 0 || $index > $count-1) {
-            throw new Zend_Wildfire_Exception('Row index('.$index.') out of bounds('.$count.')!');
+        if ($index < 0 || $index > $count - 1) {
+            throw new Zend_Wildfire_Exception('Row index(' . $index . ') out of bounds(' . $count . ')!');
         }
 
         $this->_rows[$index] = $row;
@@ -147,10 +147,10 @@ class Zend_Wildfire_Plugin_FirePhp_TableMessage extends Zend_Wildfire_Plugin_Fir
     {
         $count = $this->getRowCount();
 
-        if($count==0) {
+        if ($count == 0) {
             throw new Zend_Wildfire_Exception('Cannot get last row as no rows exist!');
         }
 
-        return $this->_rows[$count-1];
+        return $this->_rows[$count - 1];
     }
 }
