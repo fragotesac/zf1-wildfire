@@ -167,7 +167,7 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
 
         $this->assertEquals(
             serialize($protocol->getMessages()),
-                            serialize($messages)
+            serialize($messages)
         );
 
         $this->assertTrue($firephp->setEnabled(false));
@@ -362,7 +362,7 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
 
         $this->assertEquals(
             serialize($qued_messages),
-                            serialize($messages)
+            serialize($messages)
         );
     }
 
@@ -419,7 +419,7 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(
             $messages[Zend_Wildfire_Plugin_FirePhp::STRUCTURE_URI_FIREBUGCONSOLE]
                                             [Zend_Wildfire_Plugin_FirePhp::PLUGIN_URI][0],
-                            '[{"Type":"INFO","Label":"Label 1"},"Message 2"]'
+            '[{"Type":"INFO","Label":"Label 1"},"Message 2"]'
         );
     }
 
@@ -536,7 +536,7 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(
             $messages[Zend_Wildfire_Plugin_FirePhp::STRUCTURE_URI_FIREBUGCONSOLE]
                                             [Zend_Wildfire_Plugin_FirePhp::PLUGIN_URI][0],
-                            '[{"Type":"TABLE","Label":"TestMessage"},[["col1","col2"],["row1",{"__className":"ArrayObject","undeclared:0":"item1","undeclared:1":"item2"}]]]'
+            '[{"Type":"TABLE","Label":"TestMessage"},[["col1","col2"],["row1",{"__className":"ArrayObject","undeclared:0":"item1","undeclared:1":"item2"}]]]'
         );
     }
 
@@ -643,7 +643,7 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(
             $messages[Zend_Wildfire_Plugin_FirePhp::STRUCTURE_URI_FIREBUGCONSOLE]
                                             [Zend_Wildfire_Plugin_FirePhp::PLUGIN_URI][0],
-                            '[{"Type":"LOG"},"Message 2"]'
+            '[{"Type":"LOG"},"Message 2"]'
         );
     }
 
@@ -670,7 +670,7 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(
             $messages[Zend_Wildfire_Plugin_FirePhp::STRUCTURE_URI_FIREBUGCONSOLE]
                                             [Zend_Wildfire_Plugin_FirePhp::PLUGIN_URI][0],
-                            '[{"Type":"LOG"},"Message 2"]'
+            '[{"Type":"LOG"},"Message 2"]'
         );
     }
 
@@ -730,7 +730,7 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
 
         $this->assertEquals(
             get_class($firephp),
-                            'Zend_Wildfire_WildfireTest_FirePhpPlugin'
+            'Zend_Wildfire_WildfireTest_FirePhpPlugin'
         );
 
         Zend_Wildfire_Plugin_FirePhp::destroyInstance();
@@ -760,7 +760,7 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
 
         $this->assertEquals(
             get_class($firephp),
-                            'Zend_Wildfire_WildfireTest_HttpHeadersChannel'
+            'Zend_Wildfire_WildfireTest_HttpHeadersChannel'
         );
 
         Zend_Wildfire_Channel_HttpHeaders::destroyInstance();
@@ -852,14 +852,14 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
 
         $this->assertEquals(
             $firephp->setOption('includeLineNumbers', false),
-                            $_options['includeLineNumbers'],
-                            'Should return old value'
+            $_options['includeLineNumbers'],
+            'Should return old value'
         );
 
         $this->assertEquals(
             $firephp->getOption('includeLineNumbers'),
-                            false,
-                            'Should contain new value'
+            false,
+            'Should contain new value'
         );
     }
 
@@ -890,13 +890,13 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
 
         if (version_compare(phpversion(), '5.3', '<')) {
             $this->assertEquals(
-              $message,
-                              '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject1","public:name":"Name","public:value":"Value","protected:static:protectedStatic":"** Need PHP 5.3 to get value **"}]'
+                $message,
+                '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject1","public:name":"Name","public:value":"Value","protected:static:protectedStatic":"** Need PHP 5.3 to get value **"}]'
           );
         } elseif (version_compare(phpversion(), '5.3', '>=')) {
             $this->assertEquals(
-              $message,
-                              '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject1","public:name":"Name","public:value":"Value","protected:static:protectedStatic":"ProtectedStatic"}]'
+                $message,
+                '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject1","public:name":"Name","public:value":"Value","protected:static:protectedStatic":"ProtectedStatic"}]'
           );
         }
 
@@ -906,7 +906,7 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
 
         $this->assertEquals(
             $message,
-                            '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject1","public:name":"Name","public:value":"** Excluded by Filter **","protected:static:protectedStatic":"** Excluded by Filter **"}]'
+            '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject1","public:name":"Name","public:value":"** Excluded by Filter **","protected:static:protectedStatic":"** Excluded by Filter **"}]'
         );
     }
 
@@ -930,13 +930,13 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
 
         if (version_compare(phpversion(), '5.3', '<')) {
             $this->assertEquals(
-              $message,
-                              '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject2","public:public":"Public","private:private":"Private","protected:protected":"Protected","public:static:static":"Static","private:static:staticPrivate":"** Need PHP 5.3 to get value **","protected:static:staticProtected":"** Need PHP 5.3 to get value **"}]'
+                $message,
+                '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject2","public:public":"Public","private:private":"Private","protected:protected":"Protected","public:static:static":"Static","private:static:staticPrivate":"** Need PHP 5.3 to get value **","protected:static:staticProtected":"** Need PHP 5.3 to get value **"}]'
           );
         } elseif (version_compare(phpversion(), '5.3', '>=')) {
             $this->assertEquals(
-              $message,
-                              '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject2","public:public":"Public","private:private":"Private","protected:protected":"Protected","public:static:static":"Static","private:static:staticPrivate":"StaticPrivate","protected:static:staticProtected":"StaticProtected"}]'
+                $message,
+                '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject2","public:public":"Public","private:private":"Private","protected:protected":"Protected","public:static:static":"Static","private:static:staticPrivate":"StaticPrivate","protected:static:staticProtected":"StaticProtected"}]'
           );
         }
     }
@@ -978,7 +978,7 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
 
         $this->assertEquals(
             $message,
-                            '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject3","public:name":"Name","public:value":"Value","undeclared:testArray":["val1","** Max Array Depth (1) **"],"undeclared:child":{"__className":"Zend_Wildfire_WildfireTest_TestObject3","public:name":"Name","public:value":"Value","undeclared:testArray":["val1","** Max Array Depth (1) **"],"undeclared:child":"** Max Object Depth (2) **"}}]'
+            '[{"Type":"LOG"},{"__className":"Zend_Wildfire_WildfireTest_TestObject3","public:name":"Name","public:value":"Value","undeclared:testArray":["val1","** Max Array Depth (1) **"],"undeclared:child":{"__className":"Zend_Wildfire_WildfireTest_TestObject3","public:name":"Name","public:value":"Value","undeclared:testArray":["val1","** Max Array Depth (1) **"],"undeclared:child":"** Max Object Depth (2) **"}}]'
         );
 
         $message = $messages[Zend_Wildfire_Plugin_FirePhp::STRUCTURE_URI_FIREBUGCONSOLE]
@@ -987,7 +987,7 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
 
         $this->assertEquals(
             $message,
-                            '[{"Type":"TABLE","Label":"Label"},[["Col1","Col2"],[{"__className":"Zend_Wildfire_WildfireTest_TestObject3","public:name":"Name","public:value":"Value","undeclared:testArray":["val1","** Max Array Depth (1) **"],"undeclared:child":{"__className":"Zend_Wildfire_WildfireTest_TestObject3","public:name":"Name","public:value":"Value","undeclared:testArray":["val1","** Max Array Depth (1) **"],"undeclared:child":"** Max Object Depth (2) **"}},{"__className":"Zend_Wildfire_WildfireTest_TestObject3","public:name":"Name","public:value":"Value","undeclared:testArray":["val1","** Max Array Depth (1) **"],"undeclared:child":{"__className":"Zend_Wildfire_WildfireTest_TestObject3","public:name":"Name","public:value":"Value","undeclared:testArray":["val1","** Max Array Depth (1) **"],"undeclared:child":"** Max Object Depth (2) **"}}]]]'
+            '[{"Type":"TABLE","Label":"Label"},[["Col1","Col2"],[{"__className":"Zend_Wildfire_WildfireTest_TestObject3","public:name":"Name","public:value":"Value","undeclared:testArray":["val1","** Max Array Depth (1) **"],"undeclared:child":{"__className":"Zend_Wildfire_WildfireTest_TestObject3","public:name":"Name","public:value":"Value","undeclared:testArray":["val1","** Max Array Depth (1) **"],"undeclared:child":"** Max Object Depth (2) **"}},{"__className":"Zend_Wildfire_WildfireTest_TestObject3","public:name":"Name","public:value":"Value","undeclared:testArray":["val1","** Max Array Depth (1) **"],"undeclared:child":{"__className":"Zend_Wildfire_WildfireTest_TestObject3","public:name":"Name","public:value":"Value","undeclared:testArray":["val1","** Max Array Depth (1) **"],"undeclared:child":"** Max Object Depth (2) **"}}]]]'
         );
     }
 

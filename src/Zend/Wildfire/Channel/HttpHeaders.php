@@ -168,7 +168,7 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
                 foreach ($payload as $message) {
                     $this->getResponse()->setHeader(
                         self::$_headerPrefix . $message[0],
-                                                    $message[1],
+                        $message[1],
                         true
                     );
                 }
@@ -254,13 +254,13 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
 
         return ($this->getResponse()->canSendHeaders()
                 && (preg_match_all(
-                        '/\s?FirePHP\/([\.\d]*)\s?/si',
-                        $this->getRequest()->getHeader('User-Agent'),
-                        $m
+                    '/\s?FirePHP\/([\.\d]*)\s?/si',
+                    (string) $this->getRequest()->getHeader('User-Agent'),
+                    $m
                     ) ||
                     (
                         ($header = $this->getRequest()->getHeader('X-FirePHP-Version'))
-                     && preg_match_all('/^([\.\d]*)$/si', $header, $m)
+                     && preg_match_all('/^([\.\d]*)$/si', (string) $header, $m)
                    ))
                );
     }

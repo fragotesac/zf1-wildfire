@@ -398,12 +398,10 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
                 $var   = null;
             }
 
-            if (!$trace) {
-                $trace = $firephp->_getStackTrace(array_merge(
-                    $options,
-                                                              array('maxTraceDepth' => $options['maxTraceDepth'] + 1)
-                ));
-            }
+            $trace = $firephp->_getStackTrace(array_merge(
+                $options,
+                array('maxTraceDepth' => $options['maxTraceDepth'] + 1)
+            ));
 
             $var = array('Class'    => $trace[0]['class'],
                          'Type'     => $trace[0]['type'],
@@ -451,7 +449,7 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
                 if (!$trace) {
                     $trace = $firephp->_getStackTrace(array_merge(
                         $options,
-                                                                  array('maxTraceDepth' => $options['maxTraceDepth'] + 1)
+                        array('maxTraceDepth' => $options['maxTraceDepth'] + 1)
                     ));
                 }
 
@@ -471,17 +469,19 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
 
         if ($meta['Type'] == self::DUMP) {
             return $firephp->_recordMessage(
-              self::STRUCTURE_URI_DUMP,
-                                          array('key'  => $meta['Label'],
-                                                'data' => $var),
-                                          $skipFinalEncode
+                self::STRUCTURE_URI_DUMP,
+                array(
+                    'key'  => $meta['Label'],
+                    'data' => $var
+                ),
+                $skipFinalEncode
           );
         } else {
             return $firephp->_recordMessage(
-              self::STRUCTURE_URI_FIREBUGCONSOLE,
-                                          array('data' => $var,
+                self::STRUCTURE_URI_FIREBUGCONSOLE,
+                array('data'                           => $var,
                                                 'meta' => $meta),
-                                          $skipFinalEncode
+                $skipFinalEncode
           );
         }
     }
@@ -548,8 +548,8 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
                 return $this->_channel->getProtocol(self::PROTOCOL_URI)->
                            recordMessage(
                                $this,
-                                         $structure,
-                                         array($data['key'] => $value)
+                               $structure,
+                               array($data['key'] => $value)
                            );
 
             case self::STRUCTURE_URI_FIREBUGCONSOLE:
@@ -571,8 +571,8 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
                 return $this->_channel->getProtocol(self::PROTOCOL_URI)->
                            recordMessage(
                                $this,
-                                         $structure,
-                                         array($data['meta'],
+                               $structure,
+                               array($data['meta'],
                                                $value)
                            );
 
@@ -703,7 +703,7 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
                 $name = $raw_name = $just_name;
 
                 if ($name{0} == "\0") {
-                    $parts = explode("\0", $name);
+                    $parts = explode("\0", (string) $name);
                     $name  = $parts[2];
                 }
                 if (!isset($properties[$name])) {
@@ -774,9 +774,9 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
             if (!$message->getDestroy()) {
                 $this->send(
                     $message->getMessage(),
-                            $message->getLabel(),
-                            $message->getStyle(),
-                            $message->getOptions()
+                    $message->getLabel(),
+                    $message->getStyle(),
+                    $message->getOptions()
                 );
             }
         }
