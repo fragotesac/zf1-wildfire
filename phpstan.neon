@@ -18,5 +18,5 @@ parameters:
             message: '#Result of \|\| is always true\.#'
             path: %currentWorkingDirectory%/src/Zend/Wildfire/Plugin/FirePhp.php
         -
-            message: '#Offset .Label. does not exist on array\(.Type. => string\|null, \?.Label. => mixed, \?.Collapsed. => .false.\|.true., \?.File. => mixed, \?.Line. => mixed\)\.#'
+            message: '#Offset .Label. does not exist on array\(.Type. => string\|null, \?.Label. => mixed, \?.File. => mixed, \?.Line. => mixed, \?.Collapsed. => .false.\|.true.\)\.#'
             path: %currentWorkingDirectory%/src/Zend/Wildfire/Plugin/FirePhp.php
