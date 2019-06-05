@@ -1,6 +1,6 @@
 parameters:
     level: 6
-    paths: 
+    paths:
         - ./
     excludes_analyse:
         - %rootDir%/../../../vendor/*
@@ -16,7 +16,4 @@ parameters:
             path: %currentWorkingDirectory%/src/Zend/Wildfire/Channel/HttpHeaders.php
         -
             message: '#Result of \|\| is always true\.#'
-            path: %currentWorkingDirectory%/src/Zend/Wildfire/Plugin/FirePhp.php
-        -
-            message: '#Offset .Label. does not exist on array\(.Type. => string\|null, \?.Label. => mixed, \?.File. => mixed, \?.Line. => mixed, \?.Collapsed. => .false.\|.true.\)\.#'
             path: %currentWorkingDirectory%/src/Zend/Wildfire/Plugin/FirePhp.php
