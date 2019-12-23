@@ -441,7 +441,6 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
                 break;
             default:
                 throw new Zend_Wildfire_Exception('Log style "' . $meta['Type'] . '" not recognized!');
-                break;
         }
 
         if ($meta['Type'] != self::DUMP && $options['includeLineNumbers']) {
@@ -578,9 +577,7 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
 
             default:
                 throw new Zend_Wildfire_Exception('Structure of name "' . $structure . '" is not recognized.');
-                break;
         }
-        return false;
     }
 
     /**
@@ -630,6 +627,8 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
      * the object class is added.
      *
      * @param mixed $object The object/array/value to be encoded
+     * @param int $objectDepth
+     * @param int $arrayDepth
      * @return array|string The encoded object
      */
     protected function _encodeObject($object, $objectDepth = 1, $arrayDepth = 1)

@@ -1,5 +1,6 @@
 parameters:
-    level: 6
+    checkMissingIterableValueType: false
+    level: 7
     paths:
         - ./
     excludes_analyse:
@@ -17,3 +18,6 @@ parameters:
         -
             message: '#Result of \|\| is always true\.#'
             path: %currentWorkingDirectory%/src/Zend/Wildfire/Plugin/FirePhp.php
+        -
+            message: '#Cannot unset offset .File. on array\(.Type. => string\|null, \?.Label. => mixed\)\.#'
+            path: './src/Zend/Wildfire/Plugin/FirePhp.php'

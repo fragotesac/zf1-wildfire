@@ -165,6 +165,7 @@ class Zend_Wildfire_Plugin_FirePhp_Message
     /**
      * Set the style of the message
      *
+     * @param string $style
      * @return void
      */
     public function setStyle($style)
@@ -185,6 +186,7 @@ class Zend_Wildfire_Plugin_FirePhp_Message
     /**
      * Set the actual message to be sent in its final format.
      *
+     * @param mixed $message
      * @return void
      */
     public function setMessage($message)

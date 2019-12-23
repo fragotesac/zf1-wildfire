@@ -40,7 +40,7 @@ class Zend_Wildfire_Plugin_FirePhp_TableMessage extends Zend_Wildfire_Plugin_Fir
 
     /**
      * The rows of the table
-     * $var array
+     * @var array
      */
     protected $_rows = array();
 
@@ -114,6 +114,7 @@ class Zend_Wildfire_Plugin_FirePhp_TableMessage extends Zend_Wildfire_Plugin_Fir
      *
      * @param integer $index The index of the row
      * @param array $row The new data for the row
+     * @return void
      * @throws Zend_Wildfire_Exception
      */
     public function setRowAt($index, $row)
