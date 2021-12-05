@@ -58,7 +58,8 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
     /**
      * Initialize singleton instance.
      *
-     * @param string $class OPTIONAL Subclass of Zend_Wildfire_Channel_HttpHeaders
+     * @param string|null $class OPTIONAL Subclass of Zend_Wildfire_Channel_HttpHeaders
+     * @phpstan-param class-string<Zend_Wildfire_Channel_HttpHeaders>|null $class
      * @return Zend_Wildfire_Channel_HttpHeaders Returns the singleton Zend_Wildfire_Channel_HttpHeaders instance
      * @throws Zend_Wildfire_Exception
      */

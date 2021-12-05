@@ -153,7 +153,8 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
     /**
      * Create singleton instance.
      *
-     * @param string $class OPTIONAL Subclass of Zend_Wildfire_Plugin_FirePhp
+     * @param string|null $class OPTIONAL Subclass of Zend_Wildfire_Plugin_FirePhp
+     * @phpstan-param class-string<Zend_Wildfire_Plugin_FirePhp>|null $class
      * @return Zend_Wildfire_Plugin_FirePhp Returns the singleton Zend_Wildfire_Plugin_FirePhp instance
      * @throws Zend_Wildfire_Exception
      */
@@ -505,11 +506,8 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
             if (count($trace) >= 3 &&
                 isset($trace[0]['file']) && substr($trace[0]['file'], -7, 7) == 'Log.php' &&
                 isset($trace[1]['function']) && $trace[1]['function'] == '__call') {
-                $spliceOffset = 2;
-                //Debug backtrace changed in PHP 7.0.0
-                if (version_compare(PHP_VERSION, '7.0.0', '>=')) {
-                    $spliceOffset = 1;
-                }
+                $spliceOffset = 1;
+
                 $trace = array_splice($trace, $spliceOffset);
             }
         }

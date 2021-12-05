@@ -3,7 +3,7 @@ parameters:
     level: 7
     paths:
         - ./
-    excludes_analyse:
+    excludePaths:
         - %rootDir%/../../../vendor/*
         - %rootDir%/../../../tests/*
     ignoreErrors:
@@ -19,5 +19,11 @@ parameters:
             message: '#Result of \|\| is always true\.#'
             path: %currentWorkingDirectory%/src/Zend/Wildfire/Plugin/FirePhp.php
         -
-            message: '#Cannot unset offset .File. on array\(.Type. => string\|null, \?.Label. => mixed\)\.#'
+            message: '#Cannot unset offset .File. on array{Type: string\|null, Label\?: mixed}\.#'
             path: './src/Zend/Wildfire/Plugin/FirePhp.php'
+        -
+            message: '#Offset .File. on array{Type: string\|null, Label\?: mixed} in isset\(\) does not exist\.#'
+            path: ./src/Zend/Wildfire/Plugin/FirePhp.php
+        -
+            message: '#Offset .Line. on \*NEVER\* in isset\(\) always exists and is always null\.#'
+            path: ./src/Zend/Wildfire/Plugin/FirePhp.php
