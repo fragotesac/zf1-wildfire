@@ -1058,6 +1058,7 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
     }
 }
 
+#[AllowDynamicProperties]
 class Zend_Wildfire_WildfireTest_TestObject1
 {
     public $name                      = 'Name';
@@ -1065,6 +1066,7 @@ class Zend_Wildfire_WildfireTest_TestObject1
     protected static $protectedStatic = 'ProtectedStatic';
 }
 
+#[AllowDynamicProperties]
 class Zend_Wildfire_WildfireTest_TestObject2
 {
     public $public       = 'Public';
@@ -1076,12 +1078,14 @@ class Zend_Wildfire_WildfireTest_TestObject2
     protected static $staticProtected = 'StaticProtected';
 }
 
+#[AllowDynamicProperties]
 class Zend_Wildfire_WildfireTest_TestObject3
 {
     public $name  = 'Name';
     public $value = 'Value';
 }
 
+#[AllowDynamicProperties]
 class Zend_Wildfire_WildfireTest_JsonEncodingTestClass
 {
 }

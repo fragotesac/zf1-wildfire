@@ -27,3 +27,11 @@ parameters:
         -
             message: '#Offset .Line. on \*NEVER\* in isset\(\) always exists and is always null\.#'
             path: ./src/Zend/Wildfire/Plugin/FirePhp.php
+        -
+            message: '#Cannot unset offset .Line. on array{Type: string\|null, Label\?: mixed}\.#'
+            path: ./src/Zend/Wildfire/Plugin/FirePhp.php
+            count: 1
+        -
+            message: '#Offset .Label. does not exist on array{Type: string\|null, Label\?: mixed, Collapsed\?: .false.\|.true.}\|array{Type: string\|null, Label\?: mixed, File: mixed, Line: mixed, Collapsed\?: .false.\|.true.}\.#'
+            path: ./src/Zend/Wildfire/Plugin/FirePhp.php
+            count: 1

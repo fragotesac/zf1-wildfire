@@ -724,7 +724,7 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
 
             foreach ($object as $key => $val) {
 
-              // Encoding the $GLOBALS PHP array causes an infinite loop
+                // Encoding the $GLOBALS PHP array causes an infinite loop
                 // if the recursion is not reset here as it contains
                 // a reference to itself. This is the only way I have come up
                 // with to stop infinite recursion in this case.

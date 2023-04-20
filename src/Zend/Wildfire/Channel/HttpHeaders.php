@@ -263,7 +263,7 @@ class Zend_Wildfire_Channel_HttpHeaders extends Zend_Controller_Plugin_Abstract 
                         ($header = $this->getRequest()->getHeader('X-FirePHP-Version'))
                      && preg_match_all('/^([\.\d]*)$/si', (string) $header, $m)
                     ))
-               );
+        );
     }
 
 
